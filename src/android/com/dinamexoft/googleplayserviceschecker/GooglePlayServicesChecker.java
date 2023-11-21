@@ -24,11 +24,6 @@ public class GooglePlayServicesChecker extends CordovaPlugin {
             if (result != ConnectionResult.SUCCESS) {
                 Log.i(APPTAG, "result != ConnectionResult.SUCCESS");
                 json.put("status", false).put("ConnectionResult", result);
-                if (googleAPI.isUserResolvableError(result)) {
-                    Log.i(APPTAG, "googleAPI.isUserResolvableError(result)");
-                    //googleAPI.getErrorDialog(this.cordova.getActivity(), result, PLAY_SERVICES_RESOLUTION_REQUEST).show();
-                    json.put("message", "user action required");
-                }
             } else {
                 json.put("status", true);
             }
